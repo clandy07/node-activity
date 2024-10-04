@@ -2,41 +2,46 @@ const fs = require('fs');
 const path = require('path');
 
 
-const dataPath = path.resolve(__dirname, '../data/users.json');
+const dataPath = path.join(__dirname, '../data/users.json');
 
 
 const readUsers = () => {
-  const fileData = fs.readFileSync(dataPath, 'utf-8');
-  return JSON.parse(fileData || '[]'); 
+    const fileData = fs.readFileSync(dataPath, 'utf-8');
+    return JSON.parse(fileData || '[]');
 };
 
 
 const saveUsers = (users) => {
-  fs.writeFileSync(dataPath, JSON.stringify(users, null, 2));
+    fs.writeFileSync(dataPath, JSON.stringify(users, null, 2));
 };
 
 
 const findByUsername = (username) => {
     const users = readUsers();
-    return users.find(user => user.username.toLowerCase() === username.toLowerCase());
-  };
+    return users.find(user => user.username === username);
+};
 
+const findByEmail = (email) => {
+    const users = readUsers();
+    return users.find(user => user.email === email);
+};
 
 const findById = (id) => {
-  const users = readUsers();
-  return users.find(user => user.id === id);
+    const users = readUsers();
+    return users.find(user => user.id === id);
 };
 
 
 const addUser = (newUser) => {
-  const users = readUsers();
-  users.push(newUser); 
-  saveUsers(users); 
+    const users = readUsers();
+    users.push(newUser);
+    saveUsers(users);
 };
 
 
 module.exports = {
-  findByUsername,
-  findById,
-  addUser
+    findByUsername,
+    findById,
+    addUser,
+    findByEmail
 };

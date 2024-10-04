@@ -2,25 +2,31 @@
   {
     "id": 1,
     "username": "clandy07",
-    "password": "abcd1234",
-    "email": "clandy@test.com"
+    "email": "clandy@test.com",
+    "password": "abcd1234"
   },
   {
     "id": 2,
     "username": "mclovin",
-    "password": "muhammad123",
-    "email": "mclovin3@test.com"
+    "email": "mclovin3@test.com",
+    "password": "muhammad123"
   },
   {
     "id": 3,
     "username": "superbad",
-    "password": "haha123",
-    "email": "yikes@test.com"
+    "email": "yikes@test.com",
+    "password": "haha123"
   },
   {
-    "id": 1728062169694,
-    "username": "testtset",
-    "password": "abcd1234",
-    "email": "dawdaw"
+    "id": 1728066154602,
+    "username": "newuserhehe",
+    "email": "newuser@test.com",
+    "password": "newuser123"
+  },
+  {
+    "id": 1728066240146,
+    "username": "newuserhehe1",
+    "email": "newuser1@test.com",
+    "password": "newuser123"
   }
 ]
