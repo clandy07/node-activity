@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const authMiddleware = require('./middleware/authMiddleware');
+const rateLimit = require('express-rate-limit'); // Import the rate limit middleware
 const userRoutes = require('./routes/user');
 const loggingMiddleware = require('./middleware/loggingMiddleware'); 
 
@@ -9,6 +9,14 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(loggingMiddleware);
+
+const limiter = rateLimit({
+    windowMs: 1 * 60 * 1000,
+    max: 5, 
+    message: 'Too many requests, please try again later.'
+  });
+  
+  app.use(limiter);
 
 app.use('/api/users', userRoutes);
 
