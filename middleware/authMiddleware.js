@@ -6,7 +6,7 @@ const authMiddleware = (req, res, next) => {
       return res.status(401).json({ message: "Unauthorized access." });
     }
   
-    req.user = { username: 'testUser' }; 
+    req.user = { username: 'testtset' }; 
     next();
   };
   

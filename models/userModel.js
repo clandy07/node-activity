@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 
-const dataPath = path.join(__dirname, '../data/users.json');
+const dataPath = path.resolve(__dirname, '../data/users.json');
 
 
 const readUsers = () => {
@@ -17,9 +17,9 @@ const saveUsers = (users) => {
 
 
 const findByUsername = (username) => {
-  const users = readUsers();
-  return users.find(user => user.username === username);
-};
+    const users = readUsers();
+    return users.find(user => user.username.toLowerCase() === username.toLowerCase());
+  };
 
 
 const findById = (id) => {
