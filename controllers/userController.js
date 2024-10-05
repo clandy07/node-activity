@@ -23,6 +23,11 @@ const registerUser = (req, res) => {
 
 
 const loginUser = (req, res) => {
+    const { error } = loginSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ message: error.details[0].message });
+    }
+
     const { username, password } = req.body;
     const user = userModel.findByUsername(username);
 
