@@ -8,8 +8,8 @@ const router = express.Router(); // Create a new router instance
 
 // Set up rate limiter for registration and login routes
 const authLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000,  // Limit each IP to 3 requests per minute
-  max: 10,
+  windowMs: 30 * 1000,  // Limit each IP to 3 requests per 30 secs
+  max: 3,
   message: 'Too many registration or login attempts, please try again later.'
 });
 

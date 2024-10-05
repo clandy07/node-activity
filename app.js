@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 // Custom logging middleware to log each request
 app.use(loggingMiddleware);
 
-// Rate limiter to limit the number of requests from each IP within a 3-minute window
+// Rate limiter to limit the number of requests from each IP within a 30-sec window
 const limiter = rateLimit({
-    windowMs: 3 * 60 * 1000, // 3 minutes
-    max: 25, // Max 25 requests per window per IP
+    windowMs: 30 * 1000, // 30 secs
+    max: 5, // Max 5 requests per window per IP
     message: 'Too many requests, please try again later.'
 });
 
